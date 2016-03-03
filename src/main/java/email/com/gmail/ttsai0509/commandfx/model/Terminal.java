@@ -10,18 +10,18 @@ import java.util.Map;
 
 public class Terminal {
 
-    private File pwd;
+    private File workingDir;
     private Default defaultCmd;
     private Map<String, Command> commandMap;
 
     /**
      * Creates a new terminal with its own private set of fields.
      *
-     * @param initPath Directory to start in (if null, will default to C:/
+     * @param initPath Directory to start in (if null, will default to C:/)
      *
      */
     public Terminal(String initPath) {
-        pwd = (initPath == null || initPath.isEmpty()) ? new File("C:/") : new File(initPath);
+        workingDir = (initPath == null || initPath.isEmpty()) ? new File("C:/") : new File(initPath);
 
         defaultCmd = new Default(this);
 
@@ -42,12 +42,12 @@ public class Terminal {
         return cmd.execute(command.trim());
     }
 
-    public File getPwd() {
-        return pwd;
+    public File getWorkingDir() {
+        return workingDir;
     }
 
-    public void setPwd(File pwd) {
-        this.pwd = pwd;
+    public void setWorkingDir(File workingDir) {
+        this.workingDir = workingDir;
     }
 
 }

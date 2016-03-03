@@ -18,7 +18,7 @@ public class Image extends Command {
     @Override
     protected Parent _execute(String command) {
 
-        File imgFile = new File(context.getPwd(), CommandUtils.getArgs(command));
+        File imgFile = new File(context.getWorkingDir(), CommandUtils.getArgs(command));
 
         ImageView image = new ResizableImageView(imgFile.toURI().toString());
 

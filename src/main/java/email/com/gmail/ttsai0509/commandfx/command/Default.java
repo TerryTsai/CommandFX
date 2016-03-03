@@ -8,8 +8,6 @@ import javafx.scene.control.ListView;
 import org.zeroturnaround.exec.ProcessExecutor;
 import org.zeroturnaround.exec.stream.LogOutputStream;
 
-import java.io.File;
-
 public class Default extends Command {
 
     public Default(Terminal context) {
@@ -25,7 +23,7 @@ public class Default extends Command {
         new Thread(() -> {
             try {
                 new ProcessExecutor()
-                        .directory(context.getPwd())
+                        .directory(context.getWorkingDir())
                         .command(command.split(" "))
                         .readOutput(true)
                         .redirectOutput(new LogOutputStream() {
@@ -35,7 +33,6 @@ public class Default extends Command {
                             }
                         })
                         .execute();
-
             } catch (Exception e) {
                 Platform.runLater(() -> output.getItems().add(e.getMessage()));
             }

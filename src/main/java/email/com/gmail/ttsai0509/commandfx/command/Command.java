@@ -51,6 +51,7 @@ public abstract class Command {
             container.getChildren().remove(result);
             StackPane root = new StackPane(result);
             Scene scene = new Scene(root);
+            scene.setUserAgentStylesheet("global.css");
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setOnCloseRequest(e -> Platform.runLater(() -> {

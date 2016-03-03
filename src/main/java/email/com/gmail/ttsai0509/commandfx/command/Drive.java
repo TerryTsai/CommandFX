@@ -17,18 +17,18 @@ public class Drive extends Command {
     @Override
     protected Parent _execute(String command) {
 
-        File start = context.getPwd();
+        File start = context.getWorkingDir();
         File end = new File(CommandUtils.getArgs(command));
 
         if (!end.exists() || !end.isDirectory()) {
-            context.setPwd(start);
+            context.setWorkingDir(start);
             return new Label("System can not find the path specified.");
         } else {
             try {
-                context.setPwd(end);
+                context.setWorkingDir(end);
                 return new Label(end.getCanonicalPath());
             } catch (IOException e) {
-                context.setPwd(start);
+                context.setWorkingDir(start);
                 return new Label("System can not find the path specified.");
             }
         }

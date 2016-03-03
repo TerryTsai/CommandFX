@@ -19,7 +19,7 @@ public class Media extends Command {
     @Override
     protected Parent _execute(String command) {
 
-        File mediaFile = new File(context.getPwd(), CommandUtils.getArgs(command));
+        File mediaFile = new File(context.getWorkingDir(), CommandUtils.getArgs(command));
 
         javafx.scene.media.Media media = new javafx.scene.media.Media(mediaFile.toURI().toString());
 
