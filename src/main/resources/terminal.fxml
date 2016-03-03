@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="global.css"
+            fx:controller="email.com.gmail.ttsai0509.commandfx.controller.TerminalController"
+            fx:id="root">
+
+    <center>
+        <TabPane>
+            <Tab text="cfx">
+                <ScrollPane fx:id="terminalOutScroll">
+                            <VBox fx:id="terminalOut"/>
+                </ScrollPane>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <TextField fx:id="terminalIn"/>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,24 @@
+apply plugin: 'application'
+
+mainClassName = "email.com.gmail.ttsai0509.commandfx.CommandFX"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Package jar with dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': "email.com.gmail.ttsai0509.commandfx.CommandFX"
+    }
+    baseName = 'CommandFX'
+    version = '0.1'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.zeroturnaround:zt-exec:1.8'
+}
