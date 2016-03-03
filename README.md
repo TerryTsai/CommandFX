@@ -16,7 +16,7 @@ Built-In Commands
 
 **`img {file}`** Displays the image in the terminal.
 
-**`media {file}`** Plays the video or audio in the terminal.
+**`media {file}`** Plays the video or audio in the terminal. (WIP - No media player interface. Videos only play audio.)
 
 Screen
 ======
