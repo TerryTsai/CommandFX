@@ -24,6 +24,7 @@ Changes
 =======
 Added hide button to collapse results.
 Added detach button to move results to a new window (returns when window is closed).
+Added a mostly useless gallery command.
 
 Screen
 ======
