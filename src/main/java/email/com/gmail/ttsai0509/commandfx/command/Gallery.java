@@ -28,6 +28,7 @@ public class Gallery extends Command {
             return new Label("Unable to find images");
 
         TilePane pane = new TilePane();
+        pane.setPrefColumns(10);
 
         for (File file : imgPath.listFiles()) {
             try {
