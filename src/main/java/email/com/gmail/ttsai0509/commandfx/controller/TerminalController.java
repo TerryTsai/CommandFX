@@ -19,8 +19,7 @@ public class TerminalController implements AppCtrl<CommandFX> {
     @FXML public TextField terminalIn;
     @FXML public VBox terminalOut;
     @FXML public ScrollPane terminalOutScroll;
-
-    @FXML public Accordion accordion;
+    @FXML public Button clear;
 
     private Terminal terminal;
 
@@ -30,6 +29,9 @@ public class TerminalController implements AppCtrl<CommandFX> {
         terminalIn.setOnKeyPressed(getExecuteHandler());
         terminalOut.setFillWidth(true);
         terminalOutScroll.setFitToWidth(true);
+
+        // TODO : This does not quit background processes.
+        clear.setOnAction(event -> terminalOut.getChildren().clear());
     }
 
     private EventHandler<KeyEvent> getExecuteHandler() {
@@ -49,4 +51,5 @@ public class TerminalController implements AppCtrl<CommandFX> {
             }
         };
     }
+
 }

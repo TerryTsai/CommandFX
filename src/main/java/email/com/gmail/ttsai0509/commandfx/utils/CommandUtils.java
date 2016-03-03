@@ -15,7 +15,6 @@ public class CommandUtils {
             result = trimmed.substring(0, idx);
         }
 
-        System.out.println("Program(" + command + ")=" + result);
         return result;
 
     }
@@ -32,7 +31,6 @@ public class CommandUtils {
             result = trimmed.substring(idx + 1);
         }
 
-        System.out.println("Args(" + command + ")=" + result);
         return result;
     }
 

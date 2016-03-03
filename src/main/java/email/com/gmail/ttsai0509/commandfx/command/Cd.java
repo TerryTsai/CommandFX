@@ -19,7 +19,6 @@ public class Cd extends Command {
 
         File start = context.getPwd();
         File end = new File(context.getPwd(), CommandUtils.getArgs(command));
-        System.out.println("Cding into " + end.getAbsolutePath());
 
         if (!end.exists() || !end.isDirectory()) {
             context.setPwd(start);

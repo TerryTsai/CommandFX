@@ -1,6 +1,7 @@
 package email.com.gmail.ttsai0509.commandfx.command;
 
 import email.com.gmail.ttsai0509.commandfx.model.Terminal;
+import email.com.gmail.ttsai0509.commandfx.utils.DragResizer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
@@ -32,16 +33,20 @@ public abstract class Command {
 
         Label title = new Label(command, new Rectangle(10, 10, Paint.valueOf("#fff")));
 
-        Button toggle = new Button("Toggle");
-        toggle.setOnAction(event -> Platform.runLater(() -> {
-            if (container.getChildren().contains(result)) {
+        Button hide = new Button("\u2012");
+        hide.setOnAction(event -> Platform.runLater(() -> {
+            if (container.getChildren().contains(result))
                 container.getChildren().remove(result);
-            } else {
-                container.getChildren().add(result);
-            }
+
         }));
 
-        Button detach = new Button("Detach");
+        Button show = new Button("\u25a1");
+        show.setOnAction(event -> Platform.runLater(() -> {
+            if (!container.getChildren().contains(result))
+                container.getChildren().add(result);
+        }));
+
+        Button detach = new Button("\u25b2");
         detach.setOnAction(event -> Platform.runLater(() -> {
             container.getChildren().remove(result);
             StackPane root = new StackPane(result);
@@ -55,7 +60,7 @@ public abstract class Command {
             stage.show();
         }));
 
-        HBox header = new HBox(title, spacer, toggle, detach);
+        HBox header = new HBox(title, spacer, hide, show, detach);
 
         container.getChildren().setAll(header, result);
 

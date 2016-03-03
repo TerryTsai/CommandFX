@@ -33,6 +33,8 @@ public class Terminal {
         commandMap.put("exit", new Exit(this));
         commandMap.put("media", new Media(this));
         commandMap.put("web", new Web(this));
+        commandMap.put("gallery", new Gallery(this));
+
     }
 
     public Parent run(String command) {

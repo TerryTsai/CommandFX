@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <BorderPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             stylesheets="global.css"
@@ -20,7 +19,19 @@
     </center>
 
     <bottom>
-        <TextField fx:id="terminalIn"/>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <TextField fx:id="terminalIn"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+            <Button fx:id="clear"
+                    text="Clear"
+                    GridPane.rowIndex="0"
+                    GridPane.columnIndex="1"/>
+        </GridPane>
     </bottom>
 
 </BorderPane>
