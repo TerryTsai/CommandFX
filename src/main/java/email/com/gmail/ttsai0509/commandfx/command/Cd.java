@@ -10,14 +10,12 @@ import java.io.IOException;
 
 public class Cd extends Command {
 
-    private final Terminal context;
-
     public Cd(Terminal context) {
-        this.context = context;
+        super(context);
     }
 
     @Override
-    protected Parent _execute(File pwd, String command) {
+    protected Parent _execute(String command) {
 
         File start = context.getPwd();
         File end = new File(context.getPwd(), CommandUtils.getArgs(command));

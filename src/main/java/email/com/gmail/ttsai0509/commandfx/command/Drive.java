@@ -10,14 +10,12 @@ import java.io.IOException;
 
 public class Drive extends Command {
 
-    private final Terminal context;
-
     public Drive(Terminal context) {
-        this.context = context;
+        super(context);
     }
 
     @Override
-    protected Parent _execute(File pwd, String command) {
+    protected Parent _execute(String command) {
 
         File start = context.getPwd();
         File end = new File(CommandUtils.getArgs(command));

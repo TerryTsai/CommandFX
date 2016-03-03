@@ -1,5 +1,6 @@
 package email.com.gmail.ttsai0509.commandfx.command;
 
+import email.com.gmail.ttsai0509.commandfx.model.Terminal;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.scene.Parent;
@@ -11,8 +12,12 @@ import java.io.File;
 
 public class Default extends Command {
 
+    public Default(Terminal context) {
+        super(context);
+    }
+
     @Override
-    protected Parent _execute(File pwd, String command) {
+    protected Parent _execute(String command) {
 
         ListView<String> output = new ListView<>();
         output.setItems(FXCollections.observableArrayList());
@@ -20,7 +25,7 @@ public class Default extends Command {
         new Thread(() -> {
             try {
                 new ProcessExecutor()
-                        .directory(pwd)
+                        .directory(context.getPwd())
                         .command(command.split(" "))
                         .readOutput(true)
                         .redirectOutput(new LogOutputStream() {

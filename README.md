@@ -18,6 +18,13 @@ Built-In Commands
 
 **`media {file}`** Plays the video or audio in the terminal. (WIP - No media player interface. Videos only play audio.)
 
+**`web {url}`** Opens an embedded browser to the url.
+
+Changes
+=======
+Added hide button to collapse results.
+Added detach button to move results to a new window (returns when window is closed).
+
 Screen
 ======
 ![Screenshot](ss.png)

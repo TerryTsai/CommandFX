@@ -7,8 +7,7 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -20,6 +19,8 @@ public class TerminalController implements AppCtrl<CommandFX> {
     @FXML public TextField terminalIn;
     @FXML public VBox terminalOut;
     @FXML public ScrollPane terminalOutScroll;
+
+    @FXML public Accordion accordion;
 
     private Terminal terminal;
 
@@ -35,7 +36,7 @@ public class TerminalController implements AppCtrl<CommandFX> {
         return event -> {
             if (event.getCode() == KeyCode.ENTER) {
 
-                Parent cmdWindow = terminal.command(terminalIn.getText());
+                Parent cmdWindow = terminal.run(terminalIn.getText());
 
                 if (cmdWindow != null) {
                     Platform.runLater(() -> {

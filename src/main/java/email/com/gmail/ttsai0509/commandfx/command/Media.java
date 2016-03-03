@@ -1,5 +1,6 @@
 package email.com.gmail.ttsai0509.commandfx.command;
 
+import email.com.gmail.ttsai0509.commandfx.model.Terminal;
 import email.com.gmail.ttsai0509.commandfx.utils.CommandUtils;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
@@ -11,10 +12,14 @@ import java.io.File;
 
 public class Media extends Command {
 
-    @Override
-    protected Parent _execute(File pwd, String command) {
+    public Media(Terminal context) {
+        super(context);
+    }
 
-        File mediaFile = new File(pwd, CommandUtils.getArgs(command));
+    @Override
+    protected Parent _execute(String command) {
+
+        File mediaFile = new File(context.getPwd(), CommandUtils.getArgs(command));
 
         javafx.scene.media.Media media = new javafx.scene.media.Media(mediaFile.toURI().toString());
 

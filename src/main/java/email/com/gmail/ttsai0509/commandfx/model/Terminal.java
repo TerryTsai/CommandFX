@@ -14,22 +14,30 @@ public class Terminal {
     private Default defaultCmd;
     private Map<String, Command> commandMap;
 
+    /**
+     * Creates a new terminal with its own private set of fields.
+     *
+     * @param initPath Directory to start in (if null, will default to C:/
+     *
+     */
     public Terminal(String initPath) {
-        pwd = (initPath == null || initPath.isEmpty()) ? new File("C:") : new File(initPath);
+        pwd = (initPath == null || initPath.isEmpty()) ? new File("C:/") : new File(initPath);
 
-        defaultCmd = new Default();
+        defaultCmd = new Default(this);
 
+        // Register each non-default, built-in command
         commandMap = new HashMap<>();
         commandMap.put("cd", new Cd(this));
         commandMap.put("drive", new Drive(this));
-        commandMap.put("img", new Image());
-        commandMap.put("exit", new Exit());
-        commandMap.put("media", new Media());
+        commandMap.put("img", new Image(this));
+        commandMap.put("exit", new Exit(this));
+        commandMap.put("media", new Media(this));
+        commandMap.put("web", new Web(this));
     }
 
-    public Parent command(String command) {
+    public Parent run(String command) {
         Command cmd = commandMap.getOrDefault(CommandUtils.getProgram(command), defaultCmd);
-        return cmd.execute(pwd, command.trim());
+        return cmd.execute(command.trim());
     }
 
     public File getPwd() {
