@@ -25,7 +25,7 @@ public class TerminalController implements AppCtrl<CommandFX> {
 
     @Override
     public void postLoad(CommandFX app) {
-        terminal = app.getTerminal();
+        terminal = new Terminal(null);
         terminalIn.setOnKeyPressed(getExecuteHandler());
         terminalOut.setFillWidth(true);
         terminalOutScroll.setFitToWidth(true);

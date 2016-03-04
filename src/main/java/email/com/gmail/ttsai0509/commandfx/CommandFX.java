@@ -1,5 +1,6 @@
 package email.com.gmail.ttsai0509.commandfx;
 
+import email.com.gmail.ttsai0509.commandfx.controller.MainController;
 import email.com.gmail.ttsai0509.commandfx.controller.TerminalController;
 import email.com.gmail.ttsai0509.commandfx.model.Terminal;
 import email.com.gmail.ttsai0509.fx.AppCtrl;
@@ -17,9 +18,9 @@ public class CommandFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        initializeDependencies();
+        MainController mainCtrl = AppCtrl.loadGetCtrl(getClass().getResource("/main.fxml"), this);
 
-        Scene scene = new Scene(terminalCtrl.root, 800, 600);
+        Scene scene = new Scene(mainCtrl.root, 800, 600);
         primaryStage.setTitle("CommandFX");
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> Platform.runLater(() -> {
@@ -28,28 +29,6 @@ public class CommandFX extends Application {
         }));
 
         primaryStage.show();
-    }
-
-    /******************************************************************
-     *                                                                *
-     * Dependencies
-     *                                                                *
-     ******************************************************************/
-
-    private Terminal terminal;
-    private TerminalController terminalCtrl;
-
-    private void initializeDependencies() {
-        terminal = new Terminal("C:/Users/Terry");
-        terminalCtrl = AppCtrl.loadGetCtrl(getClass().getResource("/terminal.fxml"), this);
-    }
-
-    public Terminal getTerminal() {
-        return terminal;
-    }
-
-    public TerminalController getTerminalCtrl() {
-        return terminalCtrl;
     }
 
 }

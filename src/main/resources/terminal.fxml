@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="global.css"
             fx:controller="email.com.gmail.ttsai0509.commandfx.controller.TerminalController"
             fx:id="root">
 
     <center>
-        <TabPane>
-            <Tab text="cfx">
-                <ScrollPane fx:id="terminalOutScroll">
-                    <VBox fx:id="terminalOut"/>
-                </ScrollPane>
-            </Tab>
-        </TabPane>
+        <ScrollPane fx:id="terminalOutScroll">
+            <VBox fx:id="terminalOut"/>
+        </ScrollPane>
     </center>
 
     <bottom>
